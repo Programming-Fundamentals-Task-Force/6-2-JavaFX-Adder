@@ -6,36 +6,30 @@ ID:
 
 ## Problem Overview
 
-Problem Statement: A brief description of the problem to solve or the scenario to address. Focus on what students need to achieve without overloading them with details.
+Create a JavaFX application that takes two numbers as input and add them.
 
 ## Setup and Environment
 
 - **WARNING:** Do not modify the `.github` or `gradle-tests` directories. These directories are essential for the automated grading process, and any changes may result in incorrect grading.
 
-(Optional)
-
-- Provide details about setting up the project environment, such as:
-  - Maven setup: "Run mvn compile to build the project and mvn exec:java to execute."
-  - Required dependencies: "Ensure you include the following dependencies in your pom.xml."
-  - IDE configurations (if applicable): "Use IntelliJ IDEA or VS Code for this assignment. Import the Maven project directly."
+Refer to the provided `Maven Basics` and `Maven Basics for JavaFX Applications` documents for instructions on setting up the project and running the application.
 
 ## Requirements and Specifications
 
-- Instructions: General guidelines on how to approach the assignment (e.g., "Use only standard Java libraries," "Follow proper coding conventions").
-- Class/Method Specifications: Specific details about the required structure, such as method signatures, class names, or constraints on how the solution should be implemented.
+### Instructions
+
+- Create a JavaFX application following these specifications:
+  - The `Scene` size is 500 (width) x 200 (height).
+  - Include 2 `TextField`s and a `Button` with the text `Add`.
+  - Add decorative labels with the symbols `+` and `=` to visually represent the addition operation.
+  - All controls should be centered. Make sure the application looks as close to the provided example as possible.
 
 ## Input/Output Conditions
 
+When the application starts, it should look like this:
+
 ![JavaFX Adder: Before](images/adder1.png)
 
+When numbers are entered into the `TextField`s and the `Add` button is clicked, it should display the addition result, as shown below:
+
 ![JavaFX Adder: After](images/adder2.png)
-
-## Examples and Usage
-
-- Sample Input/Output: Show examples of valid inputs and their corresponding outputs to clarify expectations.
-- Example Usage: Provide one or more examples that show how the program or methods are expected to work in practice.
-
-## Additional Notes
-
-- Include hints or clarifications as needed (e.g., "Think about edge cases," "Consider using a specific data structure").
-- Mention common pitfalls or things to watch out for.
