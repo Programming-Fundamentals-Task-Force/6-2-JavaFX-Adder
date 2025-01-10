@@ -1,4 +1,4 @@
-# Assignment 1-1: Hello, World!
+# Assignment 6-2: JavaFX Adder
 
 Name:
 
@@ -26,9 +26,9 @@ Problem Statement: A brief description of the problem to solve or the scenario t
 
 ## Input/Output Conditions
 
-- Clearly specify:
-  - Input format: What inputs the program should accept and any constraints.
-  - Output format: How the program should display results.
+![JavaFX Adder: Before](images/adder1.png)
+
+![JavaFX Adder: After](images/adder2.png)
 
 ## Examples and Usage
 

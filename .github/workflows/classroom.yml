@@ -30,42 +30,68 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-    - name: Console output
-      id: console-output
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Console output
-        setup-command: mvn compile -f ${{ env.PROJECT_DIR }}/pom.xml
-        command: mvn exec:java -Dexec.mainClass="com.lab.App" --quiet -f ${{ env.PROJECT_DIR }}/pom.xml
-        input: ''
-        expected-output: |-
-          Hello, world!
-        comparison-method: exact
-        timeout: 10
-        max-score: 20
-    - name: Unit test 1
+    - name: app_window_has_correct_size
       id: unit-test-1
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Unit test 1
+        test-name: app_window_has_correct_size
         setup-command: ''
-        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.testOutput -p gradle-tests"
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.app_window_has_correct_size -p gradle-tests"
         timeout: 10
-        max-score: 40
-    - name: Unit test 2
+        max-score: 15
+    - name: app_has_two_textfields
       id: unit-test-2
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Unit test 2
+        test-name: app_has_two_textfields
         setup-command: ''
-        command: "./gradle-tests/gradlew test --tests org.test.ClassTest.testEquality -p gradle-tests"
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.app_has_two_textfields -p gradle-tests"
         timeout: 10
-        max-score: 40
+        max-score: 15
+    - name: app_has_add_button
+      id: unit-test-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: app_has_add_button
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.app_has_add_button -p gradle-tests"
+        timeout: 10
+        max-score: 15
+    - name: app_has_correct_text_labels
+      id: unit-test-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: app_has_correct_text_labels
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.app_has_correct_text_labels -p gradle-tests"
+        timeout: 10
+        max-score: 15
+    - name: all_controls_are_roughly_centered
+      id: unit-test-5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: all_controls_are_roughly_centered
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.all_controls_are_roughly_centered -p gradle-tests"
+        timeout: 10
+        max-score: 15
+    - name: add_two_numbers_from_textfields_when_clicked
+      id: unit-test-6
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: add_two_numbers_from_textfields_when_clicked
+        setup-command: ''
+        command: "./gradle-tests/gradlew test --tests org.test.AppTest.add_two_numbers_from_textfields_when_clicked -p gradle-tests"
+        timeout: 10
+        max-score: 25
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        CONSOLE-OUTPUT_RESULTS: "${{ steps.console-output.outputs.result }}"
         UNIT-TEST-1_RESULTS: "${{ steps.unit-test-1.outputs.result }}"
         UNIT-TEST-2_RESULTS: "${{ steps.unit-test-2.outputs.result }}"
+        UNIT-TEST-3_RESULTS: "${{ steps.unit-test-3.outputs.result }}"
+        UNIT-TEST-4_RESULTS: "${{ steps.unit-test-4.outputs.result }}"
+        UNIT-TEST-5_RESULTS: "${{ steps.unit-test-5.outputs.result }}"
+        UNIT-TEST-6_RESULTS: "${{ steps.unit-test-6.outputs.result }}"
       with:
-        runners: console-output,unit-test-1,unit-test-2
+        runners: unit-test-1,unit-test-2,unit-test-3,unit-test-4,unit-test-5,unit-test-6
